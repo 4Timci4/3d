@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FaqList from "./FaqList";
 
 export const metadata: Metadata = { title: "Sık Sorulan Sorular" };
 
@@ -18,14 +19,7 @@ export default function FaqPage() {
         <span className="eyebrow">SSS</span>
         <h1>Siparişten malzemeye, sık sorulanlar.</h1>
       </header>
-      <div className="faq-list">
-        {faqs.map(([question, answer], index) => (
-          <details key={question} open={index === 0}>
-            <summary><span>{String(index + 1).padStart(2, "0")}</span>{question}</summary>
-            <p>{answer}</p>
-          </details>
-        ))}
-      </div>
+      <FaqList faqs={faqs} />
     </div>
   );
 }

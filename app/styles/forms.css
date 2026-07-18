@@ -1,0 +1,174 @@
+/* ── Form Labels ── */
+.newsletter-form > label,
+.form-field label,
+.filter-group label,
+.shop-search label,
+.sort-control label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ── Form Inputs ── */
+.newsletter-form input,
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.form-field input,
+.form-field textarea,
+.shop-search input,
+.sort-control select,
+.filter-group select {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid var(--sage);
+  border-radius: 0;
+  background: var(--cream-soft);
+  color: var(--ink);
+}
+
+.newsletter-form small,
+.contact-form small,
+.form-field small {
+  display: block;
+  margin-top: 9px;
+  font-size: 0.76rem;
+}
+
+.form-field label small {
+  display: inline;
+  margin-top: 0;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.form-field {
+  margin-bottom: 24px;
+}
+
+/* ── Newsletter ── */
+.newsletter-form > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.newsletter-success {
+  padding: 28px;
+  border: 1px solid var(--ink);
+}
+
+.newsletter-success strong {
+  display: block;
+  margin: 10px 0 4px;
+  font-family: var(--display);
+  font-size: 2rem;
+}
+
+/* ── Filter / Sort ── */
+.filter-group {
+  margin-bottom: 24px;
+}
+
+.filter-group input[type="range"] {
+  width: 100%;
+  accent-color: var(--red);
+}
+
+.check-row {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.check-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--red);
+}
+
+.sort-control select {
+  min-width: 220px;
+}
+
+/* ── Option Grid (product options) ── */
+.option-fieldset {
+  margin: 0 0 27px;
+  padding: 0;
+  border: 0;
+}
+
+.option-fieldset legend {
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-grid label {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.option-grid label.is-selected {
+  border-color: var(--deep-sage);
+  background: var(--green);
+}
+
+.option-grid input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ── Quantity ── */
+.quantity-control {
+  display: inline-grid;
+  grid-template-columns: 44px minmax(35px, auto) 44px;
+  align-items: center;
+  border: 1px solid var(--line);
+}
+
+.quantity-control button {
+  display: grid;
+  min-width: 44px;
+  min-height: 44px;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  min-width: 30px;
+  text-align: center;
+  font-family: var(--mono);
+}
+
+.quantity-control--large button,
+.quantity-control--large {
+  min-height: 56px;
+}

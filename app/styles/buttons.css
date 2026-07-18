@@ -1,0 +1,82 @@
+/* ── Buttons ── */
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 650;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+.button--primary:hover {
+  background: color-mix(in srgb, var(--red) 82%, #000 18%);
+}
+
+.button--secondary {
+  border-color: var(--sage);
+  background: transparent;
+  color: var(--ink);
+}
+
+.button--secondary:hover {
+  background: var(--deep-sage);
+  color: #fff;
+}
+
+.button--full {
+  width: 100%;
+}
+
+.text-button,
+.text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.text-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.icon-text-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.83rem;
+  font-weight: 650;
+  cursor: pointer;
+}

@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans, Geist } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/components/cart/CartProvider";
-import { CartDrawer } from "@/components/cart/CartDrawer";
-import { CheckoutModal } from "@/components/cart/CheckoutModal";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const displayFont = Bricolage_Grotesque({
   subsets: ["latin", "latin-ext"],
@@ -49,17 +46,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="tr" className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}>
+    <html lang="tr" className={cn(displayFont.variable, bodyFont.variable, monoFont.variable, "font-sans", geist.variable)}>
       <body>
         <a className="skip-link" href="#main-content">İçeriğe geç</a>
-        <CartProvider>
-          <AnnouncementBar />
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <CartDrawer />
-          <CheckoutModal />
-        </CartProvider>
+        {children}
       </body>
     </html>
   );

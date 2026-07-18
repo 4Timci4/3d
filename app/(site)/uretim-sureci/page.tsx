@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { LayerSim } from "@/components/product/LayerSim";
 
 export const metadata: Metadata = { title: "Üretim Süreci" };
 
@@ -14,8 +13,6 @@ export default function ProductionPage() {
         </h1>
       </header>
 
-      <LayerSim />
-
       <section className="process-notes" aria-label="Örnek ve tolerans notu">
         <figure className="process-notes__ref">
           <div className="process-notes__crop">
@@ -26,7 +23,7 @@ export default function ProductionPage() {
               sizes="(max-width: 820px) 100vw, 360px"
               style={{
                 objectFit: "cover",
-                objectPosition: "center top",
+                objectPosition: "center",
                 filter: "grayscale(0.6) contrast(1.03) brightness(1.03)",
               }}
             />

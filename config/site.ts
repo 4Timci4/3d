@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "[MARKA ADI]",
-  shortName: "[MARKA]",
+  name: "Egy 3D",
+  shortName: "Egy 3D",
   description:
     "Küçük seriler halinde üretilen, işlevsel ve kişiselleştirilebilir 3D baskı ürünler.",
   announcement: "Belirli ürünlerde kişiselleştirme seçeneği",

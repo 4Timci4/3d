@@ -57,42 +57,50 @@ export default function HomePage() {
       </section>
 
       <section className="workshop-ledger">
-        <div className="shell workshop-ledger__inner">
+        <div className="shell">
           <header className="workshop-ledger__header">
-            <div>
-                            <h2>Ekrandaki modelden elde tutulan ürüne.</h2>
+            <div className="workshop-ledger__header-title">
+              <span className="eyebrow" style={{ color: "var(--green)" }}>ÜRETİM SÜRECİ</span>
+              <h2>Ekrandaki modelden<br />elde tutulan ürüne.</h2>
             </div>
-            <div>
+            <div className="workshop-ledger__header-meta">
               <p>Tasarım, malzeme ve baskı kararı aynı bütünün parçaları.</p>
-              <Link href="/uretim-sureci" className="text-link">Süreci ayrıntılı incele <ArrowRight size={17} /></Link>
+              <Link href="/uretim-sureci" className="text-link">
+                Süreci ayrıntılı incele <ArrowRight size={16} />
+              </Link>
             </div>
           </header>
 
-          <div className="workshop-ledger__grid">
+          <div className="workshop-ledger__body">
             <ol className="workshop-ledger__steps">
               {productionSteps.map((step) => (
-                <li key={step.number}>
-                  <span>{step.number}</span>
-                  <strong>{step.title}</strong>
+                <li key={step.number} className="workshop-ledger__step">
+                  <span className="workshop-ledger__step-num">{step.number}</span>
+                  <div className="workshop-ledger__step-content">
+                    <strong>{step.title}</strong>
+                    <p>{step.text}</p>
+                  </div>
                 </li>
               ))}
             </ol>
 
             <aside className="workshop-ledger__notes" aria-label="Malzeme ve kişiselleştirme notları">
-              <article>
+              <article className="workshop-ledger__note">
                 <span className="eyebrow">MALZEME / PLA</span>
                 <h3>İç mekân ve detaylı yüzeyler</h3>
+                <p>Hassas baskı, pürüzsüz yüzey. Masa üstü ve dekoratif ürünler için ideal.</p>
               </article>
-              <article>
+              <article className="workshop-ledger__note">
                 <span className="eyebrow">MALZEME / PETG</span>
                 <h3>Daha dayanıklı günlük kullanım</h3>
+                <p>Nem ve darbeye karşı dayanıklı. Işığa maruz kalan veya yoğun kullanılan parçalar için.</p>
               </article>
-              <article className="workshop-ledger__custom">
+              <article className="workshop-ledger__note workshop-ledger__note--custom">
                 <span className="eyebrow">SANA GÖRE</span>
                 <h3>Bazı parçalar sabit değil.</h3>
                 <p>Renk, ölçü veya kısa metin seçenekleri.</p>
-                <Link href="/urunler?category=Kişiselleştirilebilir%20Ürünler">
-                  Kişiselleştirilebilir ürünler <ArrowRight size={17} />
+                <Link href="/urunler?category=Kişiselleştirilebilir%20Ürünler" className="workshop-ledger__note-link">
+                  Kişiselleştirilebilir ürünler <ArrowRight size={15} />
                 </Link>
               </article>
             </aside>

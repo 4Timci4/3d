@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/components/cart/CartProvider";
 import { siteConfig } from "@/config/site";
+import { createClient } from "@/lib/supabase/client";
+import type { User as SupabaseUser } from "@supabase/supabase-js";
 
 const navigation = [
+  { label: "Ana Sayfa", href: "/" },
   { label: "Ürünler", href: "/urunler" },
   { label: "Üretim Süreci", href: "/uretim-sureci" },
   { label: "Hakkımızda", href: "/hakkimizda" },
@@ -20,6 +23,16 @@ export function Header() {
   const { itemCount, openCart } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setUser(data.user));
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   return (
     <header className="site-header">
@@ -48,6 +61,13 @@ export function Header() {
           >
             <Search size={21} />
           </button>
+          <Link
+            href={user ? "/hesabim" : "/giris"}
+            className="icon-button"
+            aria-label={user ? "Hesabım" : "Giriş yap"}
+          >
+            <User size={21} />
+          </Link>
           <button type="button" className="cart-trigger" onClick={openCart} aria-label={`Sepeti aç, ${itemCount} ürün`}>
             <ShoppingBag size={21} />
             <span>Sepet</span>

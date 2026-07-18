@@ -3,9 +3,18 @@
 import { useState, useTransition } from "react";
 import { register } from "@/app/auth/actions";
 
+function formatTRPhone(value: string) {
+  let d = value.replace(/\D/g, "");
+  if (d.startsWith("90")) d = d.slice(2);
+  d = d.slice(0, 10);
+  const g = [d.slice(0, 3), d.slice(3, 6), d.slice(6, 8), d.slice(8, 10)].filter(Boolean);
+  return "+90" + (g.length ? " " + g.join(" ") : " ");
+}
+
 export default function RegisterForm() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+  const [phone, setPhone] = useState("+90 ");
   const [isPending, startTransition] = useTransition();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -61,6 +70,39 @@ export default function RegisterForm() {
           required
           disabled={isPending}
         />
+      </div>
+
+      <div className="auth-page-form__row">
+        <div className="form-field">
+          <label htmlFor="phone">Telefon</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="numeric"
+            autoComplete="tel"
+            value={phone}
+            onChange={(e) => setPhone(formatTRPhone(e.target.value))}
+            onFocus={(e) => {
+              if (!e.target.value) setPhone("+90 ");
+            }}
+            placeholder="+90 5XX XXX XX XX"
+            required
+            disabled={isPending}
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="birth_date">Doğum Tarihi</label>
+          <input
+            id="birth_date"
+            name="birth_date"
+            type="date"
+            autoComplete="bday"
+            required
+            disabled={isPending}
+          />
+        </div>
       </div>
 
       <div className="auth-page-form__row">

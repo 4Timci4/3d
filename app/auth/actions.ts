@@ -46,6 +46,13 @@ export async function register(formData: FormData): Promise<RegisterResult> {
   const email = ((formData.get("email") as string | null) ?? "").trim().toLowerCase();
   const password = (formData.get("password") as string | null) ?? "";
   const confirm = (formData.get("confirm") as string | null) ?? "";
+  const phoneRaw = ((formData.get("phone") as string | null) ?? "").trim();
+  const birthDate = ((formData.get("birth_date") as string | null) ?? "").trim();
+
+  // Telefon: +90 dışındaki tüm rakamlar (10 hane, 5 ile başlar)
+  let phoneDigits = phoneRaw.replace(/\D/g, "");
+  if (phoneDigits.startsWith("90")) phoneDigits = phoneDigits.slice(2);
+  const phone = phoneDigits ? `+90 ${phoneDigits.slice(0, 3)} ${phoneDigits.slice(3, 6)} ${phoneDigits.slice(6, 8)} ${phoneDigits.slice(8, 10)}` : "";
 
   // ── Sunucu tarafı doğrulama (istemci atlanırsa da korur) ──
   if (!fullName) {
@@ -59,6 +66,18 @@ export async function register(formData: FormData): Promise<RegisterResult> {
   }
   if (!EMAIL_RE.test(email)) {
     return { error: "Geçerli bir e-posta adresi girin." };
+  }
+  if (phoneDigits.length !== 10 || !phoneDigits.startsWith("5")) {
+    return { error: "Geçerli bir telefon numarası girin (5XX XXX XX XX)." };
+  }
+  if (!birthDate) {
+    return { error: "Lütfen doğum tarihinizi girin." };
+  }
+  {
+    const d = new Date(birthDate);
+    if (isNaN(d.getTime()) || d > new Date()) {
+      return { error: "Geçerli bir doğum tarihi girin." };
+    }
   }
   if (!password) {
     return { error: "Lütfen bir şifre belirleyin." };
@@ -87,7 +106,7 @@ export async function register(formData: FormData): Promise<RegisterResult> {
       email,
       password,
       options: {
-        data: { full_name: fullName },
+        data: { full_name: fullName, phone, birth_date: birthDate },
         emailRedirectTo,
       },
     });

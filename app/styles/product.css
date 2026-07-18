@@ -13,7 +13,8 @@
 
 .product-grid--shop .product-card .product-visual,
 .product-grid--related .product-card .product-visual {
-  min-height: 180px;
+  aspect-ratio: 4 / 3;
+  min-height: 0;
 }
 
 /* ── Product Card ── */
@@ -66,7 +67,11 @@
 }
 
 .product-card__title {
-  display: inline-block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.1em;
   margin: 10px 0 6px;
   font-family: var(--display);
   font-size: clamp(1.05rem, 1.3vw, 1.3rem);
@@ -76,6 +81,11 @@
 }
 
 .product-card__body > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.55em;
   margin-bottom: 10px;
   font-size: 0.86rem;
   line-height: 1.5;
@@ -100,8 +110,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 12px;
-  padding-top: 10px;
+  margin-top: auto;
+  padding-top: 12px;
   border-top: 1px solid var(--soft-line);
 }
 
@@ -264,6 +274,14 @@
 /* ── Related Products ── */
 .related-products {
   padding-top: clamp(56px, 7vw, 100px);
+}
+
+.related-products .section-heading {
+  margin-bottom: clamp(20px, 3vw, 36px);
+}
+
+.related-products .section-heading h2 {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
 }
 
 /* ── Mobile Purchase Bar ── */

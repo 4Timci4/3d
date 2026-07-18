@@ -14,10 +14,9 @@ export default async function ProductsPage({
   const { q = "", category = "" } = await searchParams;
   return (
     <div className="shell page-shell">
-      <header className="page-intro page-intro--shop">
-        <span className="eyebrow">MAĞAZA / GÜNCEL SEÇKİ</span>
-        <h1>İşlev için tasarlanan, katmanla karakter kazanan ürünler.</h1>
-        <p>Filtreleri kullanın; malzeme, renk ve üretim durumuna göre seçkinizi daraltın.</p>
+      <header className="page-intro">
+        <h1>Ürünler</h1>
+        <p>Malzeme, renk ve üretim durumuna göre seçkiyi daraltın.</p>
       </header>
       <ShopClient initialQuery={q} initialCategory={category} />
     </div>

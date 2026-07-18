@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <span className="eyebrow">BİRLİKTE DÜŞÜNÜLEBİLİR</span>
           <h2 id="related-title">Benzer ürünler</h2>
         </div>
-        <div className="product-grid product-grid--related">
+        <div className="product-grid product-grid--shop">
           {fallbackRelated.map((item) => <ProductCard product={item} key={item.id} />)}
         </div>
       </section>

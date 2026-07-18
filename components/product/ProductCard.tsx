@@ -28,21 +28,9 @@ export function ProductCard({ product }: { product: Product }) {
         <ProductVisual productName={product.name} />
       </Link>
       <div className="product-card__body">
-        <div className="product-card__meta">
-          <span>{product.category}</span>
-          <span>{product.stockStatus}</span>
-        </div>
         <Link href={`/urunler/${product.slug}`} className="product-card__title">
           {product.name}
         </Link>
-        <p>{product.shortDescription}</p>
-        <div className="swatches" aria-label="Renk seçenekleri">
-          {product.colors.slice(0, 4).map((color) => (
-            <span key={color} className="swatch-label">
-              {color}
-            </span>
-          ))}
-        </div>
         <div className="product-card__footer">
           <strong>{formatCurrency(product.price)}</strong>
           <button

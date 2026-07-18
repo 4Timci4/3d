@@ -8,7 +8,6 @@ export default function ContactPage() {
   return (
     <div className="shell page-shell contact-page">
       <header className="contact-header">
-        <span className="brand-mark__layer contact-mark" aria-hidden="true" />
         <span className="eyebrow">İLETİŞİM</span>
         <h1>Bir ürün, ölçü veya fikri konuşalım.</h1>
         <p>

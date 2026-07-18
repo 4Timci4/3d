@@ -93,12 +93,13 @@ export function CartDrawer() {
             </div>
           </>
         ) : (
-          <div className="empty-state">
-            <ShoppingBag size={36} strokeWidth={1.4} />
+          <div className="empty-state cart-drawer__empty">
+            <ShoppingBag size={34} strokeWidth={1.4} />
+            <span className="eyebrow">SEPET</span>
             <h3>Sepetiniz boş</h3>
-            <p>İhtiyacınıza uyan parçaları mağazada birlikte bulalım.</p>
+            <p>Beğendiğiniz ürünleri sepete ekleyin; burada görünecek.</p>
             <Link href="/urunler" className="button button--primary" onClick={closeCart}>
-              Ürünleri İncele
+              Ürünleri İncele →
             </Link>
           </div>
         )}

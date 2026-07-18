@@ -14,8 +14,6 @@ export function Footer() {
           <h3>Keşfet</h3>
           <Link href="/urunler">Ürünler</Link>
           <Link href="/uretim-sureci">Üretim Süreci</Link>
-          <Link href="/hakkimizda">Hakkımızda</Link>
-          <Link href="/sss">SSS</Link>
         </div>
         <div>
           <h3>İletişim</h3>

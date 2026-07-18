@@ -17,27 +17,29 @@ export function CartPageClient() {
   if (!items.length) {
     return (
       <div className="empty-state cart-page-empty">
-        <ShoppingBag size={44} strokeWidth={1.3} />
-        <span className="eyebrow">SEPET / 00</span>
-        <h1>Henüz bir parça seçmediniz.</h1>
-        <p>Mağazadaki işlevsel ürünleri inceleyin; seçimleriniz bu cihazda korunur.</p>
-        <Link href="/urunler" className="button button--primary">Ürünleri İncele</Link>
+        <ShoppingBag size={38} strokeWidth={1.3} />
+        <span className="eyebrow">SEPET</span>
+        <h1>Sepetiniz boş</h1>
+        <p>Beğendiğiniz ürünleri sepete ekleyin — seçimleriniz bu cihazda saklanır.</p>
+        <Link href="/urunler" className="button button--primary">Ürünleri İncele →</Link>
       </div>
     );
   }
 
   return (
     <div className="cart-page-layout">
-      <section className="cart-page-items" aria-labelledby="cart-page-title">
-        <div className="cart-page-heading">
-          <div>
-            <span className="eyebrow">SEPET / {String(items.length).padStart(2, "0")}</span>
-            <h1 id="cart-page-title">Seçtiğiniz ürünler</h1>
-          </div>
-          <button type="button" className="text-button" onClick={clearCart}>Sepeti temizle</button>
+      <header className="cart-page-heading">
+        <div>
+          <span className="eyebrow">SEPET / {String(items.length).padStart(2, "0")}</span>
+          <h1 id="cart-page-title">Sepetiniz</h1>
         </div>
+        <button type="button" className="text-button" onClick={clearCart}>Sepeti temizle</button>
+      </header>
+
+      <section className="cart-page-items" aria-labelledby="cart-page-title">
         {items.map((line) => <CartLineItem line={line} key={line.key} />)}
       </section>
+
       <aside className="order-summary" aria-label="Sipariş özeti">
         <span className="eyebrow">SİPARİŞ ÖZETİ</span>
         <dl>

@@ -34,7 +34,6 @@ export default async function AccountPage() {
     <div className="shell page-shell account">
       <header className="account__head">
         <div className="account__head-main">
-          <span className="brand-mark__layer account__mark" aria-hidden="true" />
           <span className="eyebrow">HESABIM</span>
           <h1>{displayName}</h1>
           {joinDate && <p className="account__meta">Üyelik başlangıcı — {joinDate}</p>}

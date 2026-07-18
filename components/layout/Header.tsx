@@ -13,8 +13,6 @@ const navigation = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Ürünler", href: "/urunler" },
   { label: "Üretim Süreci", href: "/uretim-sureci" },
-  { label: "Hakkımızda", href: "/hakkimizda" },
-  { label: "SSS", href: "/sss" },
   { label: "İletişim", href: "/iletisim" },
 ];
 

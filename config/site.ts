@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "Egy 3D",
-  shortName: "Egy 3D",
+  name: "3D Dükkanım",
+  shortName: "3D Dükkanım",
   description:
     "Küçük seriler halinde üretilen, işlevsel ve kişiselleştirilebilir 3D baskı ürünler.",
   announcement: "Belirli ürünlerde kişiselleştirme seçeneği",
